@@ -41,18 +41,24 @@ public class PlayerController : MonoBehaviour
 //Намалювати лінію (для розробника)
 		Debug.DrawLine (from, to, Color.red);
 		
-		if(Input.GetButtonDown("Jump") && isGrounded) {
-			this.JumpActive = true; }
-		if(this.JumpActive) {
-//Якщо кнопку ще тримають if(Input.GetButton("Jump")) {
-			this.JumpTime += Time.deltaTime;
-			if (this.JumpTime < this.MaxJumpTime) {
-				Vector2 vel = myBody.velocity;
-				vel.y = JumpSpeed * (1.0f - JumpTime / MaxJumpTime); myBody.velocity = vel;
+		if(Input.GetButtonDown("Jump") && isGrounded) 
+		{
+			this.JumpActive = true; 
+		}
+		if(this.JumpActive) 
+		{
+//Якщо кнопку ще тримають
+			if(Input.GetButton("Jump")) {
+				this.JumpTime += Time.deltaTime;
+				if (this.JumpTime < this.MaxJumpTime) {
+					Vector2 vel = myBody.velocity;
+					vel.y = JumpSpeed * (1.0f - JumpTime / MaxJumpTime); 
+					myBody.velocity = vel;
+				}
+			} else {
+				this.JumpActive = false;
+				this.JumpTime = 0; 
 			}
-		} else {
-			this.JumpActive = false;
-			this.JumpTime = 0; 
 		}
 		//[-1, 1]
 		float value = Input.GetAxis ("Horizontal");
