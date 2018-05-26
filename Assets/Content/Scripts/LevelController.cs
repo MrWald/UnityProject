@@ -1,23 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class LevelController : MonoBehaviour {
+public class LevelController : MonoBehaviour 
+{
 
-	public static LevelController current;
-	private Vector3 startingPosition;
-	
-	void Awake() { 
-		current = this;
+	public static LevelController Current;
+	private Vector3 _startingPosition;
+	private int _points = 0;
+
+	void Awake() 
+	{ 
+		Current = this;
 	}
 	
-	public void setStartPosition(Vector3 pos) 
+	public void SetStartPosition(Vector3 pos) 
 	{ 
-		this.startingPosition = pos;
+		_startingPosition = pos;
 	}
 	public void onRabitDeath(PlayerController rabit) 
 	{
 //При смерті кролика повертаємо на початкову позицію
-		rabit.transform.position = this.startingPosition;
+		rabit.transform.position = Current._startingPosition;
+	}
+	
+	public void AddCoins(int number)
+	{
+		_points += number;
 	}
 }

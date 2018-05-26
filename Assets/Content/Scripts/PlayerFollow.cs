@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFollow : MonoBehaviour {
+public class PlayerFollow : MonoBehaviour 
+{
 
-    public PlayerController rabit;
+    public PlayerController Rabit;
 
     void Update () 
     {
         //Отримуємо доступ до компонента Transform
         //це Скорочення до GetComponent<Transform>
-        Transform rabit_transform = rabit.transform;
+        Transform rabitTransform = Rabit.transform;
 
         //Отримуємо доступ до компонента Transform камери
-        Transform camera_transform = this.transform;
+        Transform cameraTransform = this.transform;
 
         //Отримуємо доступ до координат кролика
-        Vector3 rabit_position = rabit_transform.position;
-        Vector3 camera_position = camera_transform.position;
+        Vector3 rabitPosition = rabitTransform.position;
+        Vector3 cameraPosition = cameraTransform.position;
 
         //Рухаємо камеру тільки по X,Y
-        camera_position.x = rabit_position.x;
-        camera_position.y = rabit_position.y;
+        cameraPosition.x = rabitPosition.x;
+        cameraPosition.y = rabitPosition.y;
 
         //Встановлюємо координати камери
-        camera_transform.position = camera_position;
+        cameraTransform.position = cameraPosition;
     }
 }
