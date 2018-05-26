@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2a4f2a5136c4412af94d1227658028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
   MaxJumpTime: 2
   JumpSpeed: 2
 --- !u!95 &15255599
@@ -328,6 +328,16 @@ Prefab:
     - target: {fileID: 4960587140136816, guid: 2d4c7828f4066446182ec4f8fd78aa7f, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
+        type: 2}
+      propertyPath: TimeToReach
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
+        type: 2}
+      propertyPath: TimeToWait
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d4c7828f4066446182ec4f8fd78aa7f, type: 2}
@@ -719,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98293f4ffdb18448da35e67c8dba2a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowdown: 0.5
+  Slowdown: 0.5
 --- !u!1 &1753059371
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98293f4ffdb18448da35e67c8dba2a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowdown: 0.5
+  Slowdown: 0.5
 --- !u!1 &2029539616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,4 +1042,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bc80b79bc24ca092edd15e0d88c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rabit: {fileID: 15255598}
+  Rabit: {fileID: 15255598}

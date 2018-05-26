@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 	private bool _isGrounded = false;
 	private bool _jumpActive = false;
 	private float _jumpTime = 0f;
+	private float _timePassed = 0f;
+	private static float _effectDuration = 4;
 	private Transform _heroParent = null;
 	private Rigidbody2D _myBody = null;
 	private Animator _animator = null;
@@ -54,6 +56,17 @@ public class PlayerController : MonoBehaviour
 			_animator.SetBool("death", false);
 			LevelController.Current.onRabitDeath(this);
 			return;
+		}
+
+		if (Bomb.Hit)
+		{
+			_timePassed += Time.deltaTime;
+			if (_timePassed >= _effectDuration)
+			{
+				_timePassed = 0f;
+				GetComponent<SpriteRenderer>().color = Color.white;
+				Bomb.Hit = false;
+			}
 		}
 
 		Vector3 from = transform.position + Vector3.up * 0.3f;
