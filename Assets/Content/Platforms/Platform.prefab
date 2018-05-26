@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4454323185521976}
   - component: {fileID: 212947704444079320}
-  - component: {fileID: 68012968865318594}
+  - component: {fileID: 68092629101124060}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &68012968865318594
+--- !u!68 &68092629101124060
 EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
