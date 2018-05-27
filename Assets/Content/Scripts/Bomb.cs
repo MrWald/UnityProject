@@ -2,7 +2,7 @@
 
 public class Bomb : Collectable
 {
-	public static bool Hit=false;
+	public static bool Hit;
 
 	protected override void OnRabitHit (PlayerController rabit) 
 	{

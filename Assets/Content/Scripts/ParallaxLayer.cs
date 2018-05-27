@@ -18,8 +18,8 @@ public class ParallaxLayer : MonoBehaviour {
 		Vector3 newPosition = Camera.main.transform.position; 
 		Vector3 diff = newPosition - _lastPosition; 
 		_lastPosition = newPosition;
-		Vector3 myPos = this.transform.position; //Рухаємо фон в туж сторону що й камера але з іншою швидкістю
+		Vector3 myPos = transform.position;
 		myPos += Slowdown * diff;
-		this.transform.position = myPos;
+		transform.position = myPos;
 	}
 }

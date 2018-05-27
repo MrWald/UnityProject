@@ -14,6 +14,7 @@ public class Collectable : MonoBehaviour
 			OnRabitHit (rabit);
 		}
 	}
+	
 	public void CollectedHide() 
 	{ 
 		Destroy(gameObject);

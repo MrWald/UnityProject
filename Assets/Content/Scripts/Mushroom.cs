@@ -2,7 +2,7 @@
 
 public class Mushroom : Collectable
 {
-	internal static bool Consumed=false;
+	internal static bool Consumed;
 	
 	protected override void OnRabitHit (PlayerController rabit) 
 	{

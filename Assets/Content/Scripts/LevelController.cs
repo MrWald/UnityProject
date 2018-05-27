@@ -16,10 +16,10 @@ public class LevelController : MonoBehaviour
 	{ 
 		_startingPosition = pos;
 	}
-	public void onRabitDeath(PlayerController rabit) 
+	
+	public void OnRabitDeath(PlayerController rabit) 
 	{
-//При смерті кролика повертаємо на початкову позицію
-		rabit.transform.position = Current._startingPosition;
+		rabit.transform.position = _startingPosition;
 	}
 	
 	public void AddCoins(int number)

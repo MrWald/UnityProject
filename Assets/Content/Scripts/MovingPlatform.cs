@@ -12,7 +12,7 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 _pointB;
     private bool _goingToA;
     private bool _wait;
-    private Rigidbody2D _myBody = null;
+    private Rigidbody2D _myBody;
     
     // Use this for initialization
     void Start () 
@@ -27,7 +27,7 @@ public class MovingPlatform : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 myPos = this.transform.position;
+        Vector3 myPos = transform.position;
         Vector3 target = _goingToA ? _pointA : _pointB;
         Vector3 destination = target - myPos;
         destination.z = 0;

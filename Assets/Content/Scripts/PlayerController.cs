@@ -10,35 +10,29 @@ public class PlayerController : MonoBehaviour
 	public float MaxJumpTime = 2f;
 	public float JumpSpeed = 2f;
 	
-	private bool _isGrounded = false;
-	private bool _jumpActive = false;
-	private float _jumpTime = 0f;
-	private float _timePassed = 0f;
+	private bool _isGrounded;
+	private bool _jumpActive;
+	private float _jumpTime;
+	private float _timePassed;
 	private static float _effectDuration = 4;
-	private Transform _heroParent = null;
-	private Rigidbody2D _myBody = null;
-	private Animator _animator = null;
+	private Transform _heroParent;
+	private Rigidbody2D _myBody;
+	private Animator _animator;
 	
 	// Use this for initialization
 	void Start () 
 	{
 		_myBody = GetComponent<Rigidbody2D>();
-		LevelController.Current.SetStartPosition (transform.position);
-		//Зберегти стандартний батьківський GameObject
-		this._heroParent = this.transform.parent;
-		_animator = GetComponent<Animator> ();
+		LevelController.Current.SetStartPosition(transform.position);
+		_heroParent = transform.parent;
+		_animator = GetComponent<Animator>();
 	}
 	
-	static void SetNewParent(Transform obj, Transform new_parent) 
+	static void SetNewParent(Transform obj, Transform newParent) 
 	{
-		if (obj.transform.parent == new_parent) return;
-//Засікаємо позицію у Глобальних координатах
+		if (obj.transform.parent == newParent) return;
 		Vector3 pos = obj.transform.position;
-//Встановлюємо нового батька
-		obj.transform.parent = new_parent;
-//Після зміни батька координати кролика зміняться
-//Оскільки вони тепер відносно іншого об’єкта
-//повертаємо кролика в ті самі глобальні координати
+		obj.transform.parent = newParent;
 		obj.transform.position = pos;
 	}
 	
@@ -47,37 +41,66 @@ public class PlayerController : MonoBehaviour
 	{
 	}
 
-	void FixedUpdate () 
+	void FixedUpdate ()
 	{
-		if (_animator.GetBool("death"))
-		{
-			if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Die") ||
-			    !(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)) return;
-			_animator.SetBool("death", false);
-			LevelController.Current.onRabitDeath(this);
+
+		if (CheckForDeath())
 			return;
-		}
+		
+		CheckForBombHit();
 
-		if (Bomb.Hit)
+		CheckIfGrounded();
+		
+		CheckForJump();
+
+		CheckForMovement();
+	}
+
+	private bool CheckForDeath()
+	{
+		if (!_animator.GetBool("death")) return false;
+		
+		if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Die") 
+		    || !(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)) 
+			return true;
+		_animator.SetBool("death", false);
+		LevelController.Current.OnRabitDeath(this);
+		return true;
+	}
+
+	private void CheckForMovement()
+	{
+		
+		float value = Input.GetAxis("Horizontal");
+		_animator.SetBool("jump", !_isGrounded);
+
+		if (Mathf.Abs(value) > 0)
 		{
-			_timePassed += Time.deltaTime;
-			if (_timePassed >= _effectDuration)
-			{
-				_timePassed = 0f;
-				GetComponent<SpriteRenderer>().color = Color.white;
-				Bomb.Hit = false;
-			}
+			_animator.SetBool("run", true);
+			Vector2 vel = _myBody.velocity;
+			vel.x = value * Speed;
+			_myBody.velocity = vel;
+			SpriteRenderer sr = GetComponent<SpriteRenderer>();
+			if (value < 0)
+				sr.flipX = true;
+			else if (value > 0)
+				sr.flipX = false;
 		}
+		else
+			_animator.SetBool("run", false);
+	}
 
+	private void CheckIfGrounded()
+	{
 		Vector3 from = transform.position + Vector3.up * 0.3f;
 		Vector3 to = transform.position + Vector3.down * 0.1f;
 		int layerId = 1 << LayerMask.NameToLayer("Ground");
-//Перевіряємо чи проходить лінія через Collider з шаром Ground
+		
 		RaycastHit2D hit = Physics2D.Linecast(@from, to, layerId);
 		if (hit)
 		{
 			_isGrounded = true;
-			//Перевіряємо чи ми опинились на платформі
+			
 			if (hit.transform != null && hit.transform.GetComponent<MovingPlatform>() != null)
 			{
 				//Приліпаємо до платформи
@@ -90,57 +113,40 @@ public class PlayerController : MonoBehaviour
 			SetNewParent(transform, _heroParent);
 		}
 
-//Намалювати лінію (для розробника)
 		Debug.DrawLine(@from, to, Color.red);
-
+	}
+	
+	private void CheckForJump()
+	{
 		if (Input.GetButtonDown("Jump") && _isGrounded)
 		{
 			_jumpActive = true;
 		}
 
-		if (_jumpActive)
-		{
+		if (!_jumpActive) return;
 //Якщо кнопку ще тримають
-			if (Input.GetButton("Jump"))
-			{
-				_jumpTime += Time.deltaTime;
-				if (_jumpTime < MaxJumpTime)
-				{
-					Vector2 vel = _myBody.velocity;
-					vel.y = JumpSpeed * (1.0f - _jumpTime / MaxJumpTime);
-					_myBody.velocity = vel;
-				}
-			}
-			else
-			{
-				_jumpActive = false;
-				_jumpTime = 0;
-			}
-		}
-
-		//[-1, 1]
-		float value = Input.GetAxis("Horizontal");
-		_animator.SetBool("jump", !_isGrounded);
-
-		if (Mathf.Abs(value) > 0)
+		if (Input.GetButton("Jump"))
 		{
-			_animator.SetBool("run", true);
+			_jumpTime += Time.deltaTime;
+			if (!(_jumpTime < MaxJumpTime)) return;
 			Vector2 vel = _myBody.velocity;
-			vel.x = value * Speed;
+			vel.y = JumpSpeed * (1.0f - _jumpTime / MaxJumpTime);
 			_myBody.velocity = vel;
-			SpriteRenderer sr = GetComponent<SpriteRenderer>();
-			if (value < 0)
-			{
-				sr.flipX = true;
-			}
-			else if (value > 0)
-			{
-				sr.flipX = false;
-			}
 		}
 		else
 		{
-			_animator.SetBool("run", false);
+			_jumpActive = false;
+			_jumpTime = 0;
 		}
+	}
+
+	private void CheckForBombHit()
+	{
+		if (!Bomb.Hit) return;
+		_timePassed += Time.deltaTime;
+		if (!(_timePassed >= _effectDuration)) return;
+		_timePassed = 0f;
+		GetComponent<SpriteRenderer>().color = Color.white;
+		Bomb.Hit = false;
 	}
 }
