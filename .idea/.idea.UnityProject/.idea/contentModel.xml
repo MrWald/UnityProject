@@ -7,14 +7,19 @@
       <e p="Assets/Content" t="Include">
         <e p="Scripts" t="Include">
           <e p="Bomb.cs" t="Include" />
+          <e p="Carrot.cs" t="Include" />
           <e p="Coins.cs" t="Include" />
           <e p="Collectable.cs" t="Include" />
           <e p="Crystal.cs" t="Include" />
           <e p="DeathHere.cs" t="Include" />
           <e p="Fruit.cs" t="Include" />
+          <e p="GreenOrc.cs" t="Include" />
           <e p="LevelController.cs" t="Include" />
+          <e p="MovingObj.cs" t="Include" />
           <e p="MovingPlatform.cs" t="Include" />
           <e p="Mushroom.cs" t="Include" />
+          <e p="OrangeOrc.cs" t="Include" />
+          <e p="Orc.cs" t="Include" />
           <e p="ParallaxLayer.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />

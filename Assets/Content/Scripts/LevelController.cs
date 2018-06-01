@@ -26,4 +26,12 @@ public class LevelController : MonoBehaviour
 	{
 		_points += number;
 	}
+	
+	public static void SetNewParent(Transform obj, Transform newParent) 
+	{
+		if (obj.transform.parent == newParent) return;
+		Vector3 pos = obj.transform.position;
+		obj.transform.parent = newParent;
+		obj.transform.position = pos;
+	}
 }

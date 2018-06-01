@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	public float Speed = 1;
 	public float MaxJumpTime = 2f;
 	public float JumpSpeed = 2f;
+	public static PlayerController LastRabit;
 	
 	private bool _isGrounded;
 	private bool _jumpActive;
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D _myBody;
 	private Animator _animator;
 	
+	void Awake() {
+		LastRabit = this;
+	}
+	
 	// Use this for initialization
 	void Start () 
 	{
@@ -26,14 +31,6 @@ public class PlayerController : MonoBehaviour
 		LevelController.Current.SetStartPosition(transform.position);
 		_heroParent = transform.parent;
 		_animator = GetComponent<Animator>();
-	}
-	
-	static void SetNewParent(Transform obj, Transform newParent) 
-	{
-		if (obj.transform.parent == newParent) return;
-		Vector3 pos = obj.transform.position;
-		obj.transform.parent = newParent;
-		obj.transform.position = pos;
 	}
 	
 	// Update is called once per frame
@@ -104,13 +101,13 @@ public class PlayerController : MonoBehaviour
 			if (hit.transform != null && hit.transform.GetComponent<MovingPlatform>() != null)
 			{
 				//Приліпаємо до платформи
-				SetNewParent(transform, hit.transform);
+				LevelController.SetNewParent(transform, hit.transform);
 			}
 		}
 		else
 		{
 			_isGrounded = false;
-			SetNewParent(transform, _heroParent);
+			LevelController.SetNewParent(transform, _heroParent);
 		}
 
 		Debug.DrawLine(@from, to, Color.red);
