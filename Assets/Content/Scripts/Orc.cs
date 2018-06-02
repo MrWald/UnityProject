@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class Orc : MovingObj {
 
 	public float Speed = 1;
-	
+	public float DeathHeight = 0.5f;
 	protected Animator Animator;
 	protected Mode _mode;
 	
@@ -31,6 +31,8 @@ public abstract class Orc : MovingObj {
 
 	void FixedUpdate()
 	{
+		if (Animator.GetBool("death"))
+			return;
 		
 		float value = GetDirection ();
 
@@ -78,7 +80,7 @@ public abstract class Orc : MovingObj {
 		}
 		Vector3 rabitPos = PlayerController.LastRabit.transform.position;
 		if (_mode != Mode.Attack && rabitPos.x > Mathf.Min (PointA.x, PointB.x)
-		                       && rabitPos.x < Mathf.Max (PointA.x, PointB.x))
+		                       && rabitPos.x < Mathf.Max (PointA.x, PointB.x) && Math.Abs(rabitPos.y-myPos.y)<DeathHeight*4)
 		{
 			_mode = Mode.Attack;
 			Speed *= 1.5f;
@@ -109,5 +111,10 @@ public abstract class Orc : MovingObj {
 			default:
 				throw new NotImplementedException();
 		}
+	}
+	
+	protected IEnumerator DestroyLater() {
+		yield return new WaitForSeconds (Animator.GetCurrentAnimatorStateInfo(0).length); 
+		Destroy (gameObject);
 	}
 }
