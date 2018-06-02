@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour 
 {
 
 	public static LevelController Current;
+	public Text Text;
 	private Vector3 _startingPosition;
 	private int _points = 0;
 
@@ -25,6 +27,7 @@ public class LevelController : MonoBehaviour
 	public void AddCoins(int number)
 	{
 		_points += number;
+		Text.text = _points.ToString();
 	}
 	
 	public static void SetNewParent(Transform obj, Transform newParent) 
