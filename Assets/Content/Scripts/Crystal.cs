@@ -1,10 +1,16 @@
 ﻿
-public class Crystal : Collectable 
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Crystal : Collectable
 {
 
-	protected override void OnRabitHit (PlayerController rabit) 
+	public Image CrystalImage;
+	public Sprite Sprite;
+	
+	protected override void OnRabitHit (PlayerController rabit)
 	{
-		LevelController.Current.AddCoins (10);
+		CrystalImage.GetComponent<Image>().sprite = Sprite;
 		CollectedHide ();
 	}
 }

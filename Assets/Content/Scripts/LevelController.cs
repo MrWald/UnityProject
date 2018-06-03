@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour 
 {
 
 	public static LevelController Current;
-	public Text Text;
+	public Text Points;
+	public Image[] Lifes;
+	public Sprite EmptyLife;
 	private Vector3 _startingPosition;
 	private int _points = 0;
+	private int _health = 3;
 
 	void Awake() 
 	{ 
@@ -21,13 +25,16 @@ public class LevelController : MonoBehaviour
 	
 	public void OnRabitDeath(PlayerController rabit) 
 	{
+		if(_health==0)
+			SceneManager.LoadScene("Level Chooser");
 		rabit.transform.position = _startingPosition;
+		Lifes[--_health].GetComponent<Image>().sprite = EmptyLife;
 	}
 	
 	public void AddCoins(int number)
 	{
 		_points += number;
-		Text.text = _points.ToString();
+		Points.text = _points.ToString().PadLeft(4, '0');
 	}
 	
 	public static void SetNewParent(Transform obj, Transform newParent) 

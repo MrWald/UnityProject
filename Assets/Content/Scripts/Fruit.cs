@@ -1,10 +1,26 @@
 ﻿
-public class Fruit : Collectable 
+using UnityEngine.UI;
+
+public class Fruit : Collectable
 {
 
-	protected override void OnRabitHit (PlayerController rabit) 
+	private static int _fruitsTaken;
+	private static int _fruitsAll;
+	public Text Text;
+
+	void Awake()
 	{
-		LevelController.Current.AddCoins (5);
+		++_fruitsAll;
+	}
+
+	void Start()
+	{
+		Text.text = "0/"+_fruitsAll;
+	}
+	
+	protected override void OnRabitHit(PlayerController rabit)
+	{
+		Text.text = ++_fruitsTaken + "/" + _fruitsAll;
 		CollectedHide ();
 	}
 }

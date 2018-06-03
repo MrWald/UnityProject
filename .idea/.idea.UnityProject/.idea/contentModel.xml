@@ -12,9 +12,11 @@
           <e p="Collectable.cs" t="Include" />
           <e p="Crystal.cs" t="Include" />
           <e p="DeathHere.cs" t="Include" />
+          <e p="DoorController.cs" t="Include" />
           <e p="Fruit.cs" t="Include" />
           <e p="GreenOrc.cs" t="Include" />
           <e p="LevelController.cs" t="Include" />
+          <e p="MainMenuPlay.cs" t="Include" />
           <e p="MovingObj.cs" t="Include" />
           <e p="MovingPlatform.cs" t="Include" />
           <e p="Mushroom.cs" t="Include" />
