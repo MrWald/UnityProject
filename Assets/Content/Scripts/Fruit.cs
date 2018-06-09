@@ -1,26 +1,21 @@
 ﻿
-using UnityEngine.UI;
-
 public class Fruit : Collectable
 {
-
-	private static int _fruitsTaken;
-	private static int _fruitsAll;
-	public Text Text;
-
-	void Awake()
-	{
-		++_fruitsAll;
-	}
+	
+	private int _id;
 
 	void Start()
 	{
-		Text.text = "0/"+_fruitsAll;
+		_id = ++LevelController.Current.FruitsAll;
+		if (!LevelController.Current.Stats.CollectedFruits.Contains(_id)) return;
+		++LevelController.Current.FruitsTaken;
+		CollectedHide();
 	}
 	
 	protected override void OnRabitHit(PlayerController rabit)
 	{
-		Text.text = ++_fruitsTaken + "/" + _fruitsAll;
+		++LevelController.Current.FruitsTaken;
+		LevelController.Current.Stats.CollectedFruits.Add(_id);
 		CollectedHide ();
 	}
 }

@@ -2496,6 +2496,13 @@ MonoBehaviour:
   - {fileID: 391994153}
   - {fileID: 689174183}
   EmptyLife: {fileID: 21300000, guid: d53831f2405364d7b936a805bc85fa59, type: 3}
+  Fruits: {fileID: 1411424875}
+  Level: 2
+  Stats:
+    HasCrystals: 0
+    HasAllFruits: 0
+    LevelPassed: 0
+    CollectedFruits: 
 --- !u!4 &1426582963
 Transform:
   m_ObjectHideFlags: 0

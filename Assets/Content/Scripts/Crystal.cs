@@ -10,6 +10,7 @@ public class Crystal : Collectable
 	protected override void OnRabitHit (PlayerController rabit)
 	{
 		CrystalImage.GetComponent<Image>().sprite = GetComponent<SpriteRenderer>().sprite;
+		++LevelController.Current.CrystalsTaken;
 		CollectedHide ();
 	}
 }

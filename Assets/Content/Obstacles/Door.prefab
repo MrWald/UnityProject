@@ -228,7 +228,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518190d89db98483783b55c239fd3b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: Level1
+  Level: 0
+  Crystal: {fileID: 1555080672760434}
+  Fruit: {fileID: 1814862174166916}
+  Lock: {fileID: 1312765237189534}
+  CrystalSprite: {fileID: 21300000, guid: 3cb1b99d25dc94b7a9197f9696940e7d, type: 3}
+  FruitSprite: {fileID: 21300000, guid: 397e43185a08b4129b4bc15135201dc0, type: 3}
+  LockSprite: {fileID: 21300000, guid: a4d98cc9b334e40dbb50c46cb7cdcf69, type: 3}
 --- !u!212 &212077933630826596
 SpriteRenderer:
   m_ObjectHideFlags: 1
