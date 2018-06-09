@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public abstract class Orc : MovingObj {
@@ -9,6 +10,7 @@ public abstract class Orc : MovingObj {
 	public float DeathHeight = 0.5f;
 	protected Animator Animator;
 	protected Mode _mode;
+	protected AudioSource AttackSource;
 	
 	protected enum Mode { 
 		GoToA,
@@ -26,7 +28,6 @@ public abstract class Orc : MovingObj {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	void FixedUpdate()
@@ -59,6 +60,11 @@ public abstract class Orc : MovingObj {
 	}
 
 	protected abstract float AttackBehaviour();
+	
+	protected void OnAttack() {
+		if(SoundManager.Instance.IsSoundOn)
+			AttackSource.Play();
+	}
 	
 	private float GetDirection()
 	{

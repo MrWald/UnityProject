@@ -28,6 +28,7 @@
           <e p="ParallaxLayer.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

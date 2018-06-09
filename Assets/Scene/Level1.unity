@@ -180,6 +180,73 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 299e3591f6a67438ca19dd7ecdfc8f29, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &60139894
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Points
+      value: 
+      objectReference: {fileID: 173879361}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Lifes.Array.data[0]
+      value: 
+      objectReference: {fileID: 2130958187}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Lifes.Array.data[1]
+      value: 
+      objectReference: {fileID: 1958022516}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Lifes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1844718792}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Fruits
+      value: 
+      objectReference: {fileID: 1644102912}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &66167489
 Prefab:
   m_ObjectHideFlags: 0
@@ -899,59 +966,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1e09d75eeda34556b68bc77b4d67dae, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &428229404
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 428229406}
-  - component: {fileID: 428229405}
-  m_Layer: 0
-  m_Name: LevelController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &428229405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 428229404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d1d8b82d2e5b4440bfb17d402239a71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Points: {fileID: 173879361}
-  Lifes:
-  - {fileID: 2130958187}
-  - {fileID: 1958022516}
-  - {fileID: 1844718792}
-  EmptyLife: {fileID: 21300000, guid: d53831f2405364d7b936a805bc85fa59, type: 3}
-  Fruits: {fileID: 1644102912}
-  Level: 1
-  Stats:
-    HasCrystals: 0
-    HasAllFruits: 0
-    LevelPassed: 0
-    CollectedFruits: 
---- !u!4 &428229406
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 428229404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &482614967
 Prefab:
   m_ObjectHideFlags: 0

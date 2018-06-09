@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	private Transform _heroParent;
 	private Rigidbody2D _myBody;
 	private Animator _animator;
+	private bool _wait;
 	
 	void Awake() {
 		LastRabit = this;
@@ -40,29 +41,21 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-
-		if (CheckForDeath())
-			return;
+		if (_wait) return;
 		
+		if (_animator.GetBool("death"))
+		{
+			_wait = true;
+			StartCoroutine(PostDeath());
+		}
+
 		CheckForBombHit();
 
 		CheckIfGrounded();
-		
+
 		CheckForJump();
 
 		CheckForMovement();
-	}
-
-	private bool CheckForDeath()
-	{
-		if (!_animator.GetBool("death")) return false;
-		
-		if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("Die") 
-		    || !(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 2)) 
-			return true;
-		_animator.SetBool("death", false);
-		LevelController.Current.OnRabitDeath(this);
-		return true;
 	}
 
 	private void CheckForMovement()
@@ -145,5 +138,13 @@ public class PlayerController : MonoBehaviour
 		_timePassed = 0f;
 		GetComponent<SpriteRenderer>().color = Color.white;
 		Bomb.Hit = false;
+	}
+
+	private IEnumerator PostDeath()
+	{
+		yield return new WaitForSeconds (_animator.GetCurrentAnimatorStateInfo(0).length * 1.5f); 
+		_animator.SetBool("death", false);
+		LevelController.Current.OnRabitDeath(this);
+		_wait = false;
 	}
 }

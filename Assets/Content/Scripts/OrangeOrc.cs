@@ -15,6 +15,7 @@ public class OrangeOrc : Orc {
 		Animator = GetComponent<Animator>();
 		_lastCarrot = Time.time;
 		_collider = GetComponent<BoxCollider2D>();
+		AttackSource = GetComponent<AudioSource> (); 
 	}
 	
 	// Update is called once per frame
@@ -29,22 +30,10 @@ public class OrangeOrc : Orc {
 		GetComponent<SpriteRenderer>().flipX = PlayerController.LastRabit.GetComponent<SpriteRenderer>().flipX;
 		if(Mathf.Abs(rabitPos.x - myPos.x) < 5.0f)
 		{
-			
-			if (_collider.IsTouching(PlayerController.LastRabit.GetComponent<BoxCollider2D>()))
-			{
-				if (rabitPos.y - myPos.y > DeathHeight)
-				{
-					Animator.SetBool("death", true);
-					StartCoroutine(DestroyLater());
-				}
-				else 
-					PlayerController.LastRabit.GetComponent<Animator>().SetBool("death", true);
-				return 0;
-			}
 			if (!(Time.time - _lastCarrot > 2.0f)) return 0;
+			OnAttack();
 			LaunchCarrot(myPos.x < rabitPos.x?1:-1);
 			_lastCarrot = Time.time;
-			
 			return 0;
 		}
 		if(myPos.x < rabitPos.x)
@@ -61,6 +50,22 @@ public class OrangeOrc : Orc {
 //Запускаємо в рух
 		Carrot carrot = obj.GetComponent<Carrot> ();
 		carrot.Launch (direction); 
+	}
+	
+	void OnTriggerEnter2D(Collider2D collider) 
+	{
+		PlayerController rabit = collider.GetComponent<PlayerController>(); 
+		if(rabit != null) 
+		{
+			OnAttack();
+			if (rabit.transform.position.y - transform.position.y > DeathHeight)
+			{
+				Animator.SetBool("death", true);
+				StartCoroutine(DestroyLater());
+			}
+			else 
+				PlayerController.LastRabit.GetComponent<Animator>().SetBool("death", true);
+		}
 	}
 
 }
