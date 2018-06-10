@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
 	public float MaxJumpTime = 2f;
 	public float JumpSpeed = 2f;
 	public static PlayerController LastRabit;
+	public AudioClip WalkingAudio;
+	public AudioClip JumpingAudio;
+	public AudioClip DeathAudio;
+	public AudioSource AudioSource;
 	
 	private bool _isGrounded;
 	private bool _jumpActive;
@@ -20,6 +24,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D _myBody;
 	private Animator _animator;
 	private bool _wait;
+	
 	
 	void Awake() {
 		LastRabit = this;
@@ -32,6 +37,7 @@ public class PlayerController : MonoBehaviour
 		LevelController.Current.SetStartPosition(transform.position);
 		_heroParent = transform.parent;
 		_animator = GetComponent<Animator>();
+		AudioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -45,6 +51,9 @@ public class PlayerController : MonoBehaviour
 		
 		if (_animator.GetBool("death"))
 		{
+			AudioSource.clip = DeathAudio;
+			if(SoundManager.Instance.IsSoundOn)
+				AudioSource.Play();
 			_wait = true;
 			StartCoroutine(PostDeath());
 		}
@@ -66,6 +75,12 @@ public class PlayerController : MonoBehaviour
 
 		if (Mathf.Abs(value) > 0)
 		{
+			if (AudioSource.clip == null)
+			{
+				AudioSource.clip = WalkingAudio;
+				AudioSource.loop = true;
+				AudioSource.Play();
+			}
 			_animator.SetBool("run", true);
 			Vector2 vel = _myBody.velocity;
 			vel.x = value * Speed;
@@ -77,7 +92,11 @@ public class PlayerController : MonoBehaviour
 				sr.flipX = false;
 		}
 		else
+		{
+			AudioSource.Stop();
+			AudioSource.clip = null;
 			_animator.SetBool("run", false);
+		}
 	}
 
 	private void CheckIfGrounded()
@@ -99,6 +118,8 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
+			AudioSource.Stop();
+			AudioSource.clip = null;
 			_isGrounded = false;
 			LevelController.SetNewParent(transform, _heroParent);
 		}
@@ -142,9 +163,10 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator PostDeath()
 	{
-		yield return new WaitForSeconds (_animator.GetCurrentAnimatorStateInfo(0).length * 1.5f); 
+		yield return new WaitForSeconds (_animator.GetCurrentAnimatorStateInfo(0).length * 2); 
 		_animator.SetBool("death", false);
 		LevelController.Current.OnRabitDeath(this);
 		_wait = false;
+		AudioSource.clip = null;
 	}
 }

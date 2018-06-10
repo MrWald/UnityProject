@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 public class Fruit : Collectable
 {
 	
@@ -7,6 +9,7 @@ public class Fruit : Collectable
 	void Start()
 	{
 		_id = ++LevelController.Current.FruitsAll;
+		Audio = GetComponent<AudioSource>();
 		if (!LevelController.Current.Stats.CollectedFruits.Contains(_id)) return;
 		++LevelController.Current.FruitsTaken;
 		CollectedHide();

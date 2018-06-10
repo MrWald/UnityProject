@@ -11,6 +11,7 @@ public class MovingPlatform : MovingObj
     
     private bool _goingToA;
     private bool _wait;
+    private AudioSource _audioSource;
     
     // Use this for initialization
     new void Start () 
@@ -19,6 +20,7 @@ public class MovingPlatform : MovingObj
         _goingToA = false;
         _wait = true;
         _currentTimeToWait = TimeToWait;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -32,6 +34,8 @@ public class MovingPlatform : MovingObj
         {
             _currentTimeToWait -= Time.deltaTime;
             if (!(_currentTimeToWait <= 0)) return;
+            if(SoundManager.Instance.IsSoundOn)
+                _audioSource.Play();
             _wait = false;
             _currentTimeToWait = TimeToWait;
             MyBody.velocity = new Vector2(destination.x/TimeToReach, destination.y/TimeToReach);
@@ -40,6 +44,8 @@ public class MovingPlatform : MovingObj
 
         if (!IsArrived(myPos, target)) return;
         _goingToA = !_goingToA;
+        if(SoundManager.Instance.IsSoundOn)
+            _audioSource.Stop();
         _wait = true;
         MyBody.velocity = new Vector2(0, 0);
     }

@@ -83,6 +83,9 @@ public class LevelController : MonoBehaviour
 	
 	public void OnRabitDeath(PlayerController rabit)
 	{
+		rabit.AudioSource.clip = rabit.DeathAudio;
+		if(SoundManager.Instance.IsSoundOn)
+			rabit.AudioSource.Play();
 		if(_health==1)
 			SceneManager.LoadScene("Level Chooser");
 		rabit.transform.position = _startingPosition;

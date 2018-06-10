@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212998911576373964}
   - component: {fileID: 50479823630401538}
   - component: {fileID: 61894624932801890}
+  - component: {fileID: 61289384295913016}
   - component: {fileID: 95427803756593282}
   - component: {fileID: 114344785351015222}
-  - component: {fileID: 61289384295913016}
   - component: {fileID: 82690775661708558}
   m_Layer: 0
   m_Name: Green Orc
@@ -78,7 +78,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1}
+  m_Offset: {x: -0.1, y: 0.85}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}

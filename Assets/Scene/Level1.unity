@@ -244,6 +244,11 @@ Prefab:
       propertyPath: Fruits
       value: 
       objectReference: {fileID: 1644102912}
+    - target: {fileID: 82113880705411116, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
   m_IsPrefabParent: 0
@@ -592,21 +597,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 41
       objectReference: {fileID: 0}
-    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
-        type: 2}
-      propertyPath: MoveBy.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
-        type: 2}
-      propertyPath: MoveBy.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
-        type: 2}
-      propertyPath: TimeToReach
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d4c7828f4066446182ec4f8fd78aa7f, type: 2}
   m_IsPrefabParent: 0
@@ -799,6 +789,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114641375448396094, guid: 1ab52462c98e940e0911456b96dfd692,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ce8c79150c004ce39a7d3c7a9b69e2d,
+        type: 3}
+    - target: {fileID: 114727269247858202, guid: 1ab52462c98e940e0911456b96dfd692,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ce8c79150c004ce39a7d3c7a9b69e2d,
+        type: 3}
+    - target: {fileID: 114698611648305786, guid: 1ab52462c98e940e0911456b96dfd692,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2ce8c79150c004ce39a7d3c7a9b69e2d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ab52462c98e940e0911456b96dfd692, type: 2}
   m_IsPrefabParent: 0
@@ -1104,6 +1112,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 114450490558203336, guid: 33d97a113f27b4ee1a99f20efda714e7,
+        type: 2}
+      propertyPath: DeathAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 7553580dee44e4f96b2efa5f4e5e17c3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33d97a113f27b4ee1a99f20efda714e7, type: 2}
   m_IsPrefabParent: 0
@@ -1615,6 +1628,11 @@ Prefab:
       propertyPath: Text
       value: 
       objectReference: {fileID: 1644102912}
+    - target: {fileID: 61641592802705886, guid: 299e3591f6a67438ca19dd7ecdfc8f29,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 299e3591f6a67438ca19dd7ecdfc8f29, type: 2}
   m_IsPrefabParent: 0
@@ -2510,6 +2528,11 @@ Prefab:
       propertyPath: MoveBy.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114838178682473838, guid: 2d4c7828f4066446182ec4f8fd78aa7f,
+        type: 2}
+      propertyPath: MoveBy.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d4c7828f4066446182ec4f8fd78aa7f, type: 2}
   m_IsPrefabParent: 0
@@ -3157,6 +3180,11 @@ Prefab:
       propertyPath: MoveBy.x
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 82690775661708558, guid: f2a4e4fb99bf84573833aa572e479be7,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ece9b14a232f14f48ab9a5e844cb5daf, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2a4e4fb99bf84573833aa572e479be7, type: 2}
   m_IsPrefabParent: 0

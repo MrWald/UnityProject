@@ -4,6 +4,11 @@ public class Bomb : Collectable
 {
 	public static bool Hit;
 
+	void Start()
+	{
+		Audio = GetComponent<AudioSource>();
+	}
+
 	protected override void OnRabitHit (PlayerController rabit) 
 	{
 		if (Mushroom.Consumed)

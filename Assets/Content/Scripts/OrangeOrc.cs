@@ -54,18 +54,16 @@ public class OrangeOrc : Orc {
 	
 	void OnTriggerEnter2D(Collider2D collider) 
 	{
-		PlayerController rabit = collider.GetComponent<PlayerController>(); 
-		if(rabit != null) 
+		PlayerController rabit = collider.GetComponent<PlayerController>();
+		if (rabit == null) return;
+		OnAttack();
+		if (rabit.transform.position.y - transform.position.y > DeathHeight)
 		{
-			OnAttack();
-			if (rabit.transform.position.y - transform.position.y > DeathHeight)
-			{
-				Animator.SetBool("death", true);
-				StartCoroutine(DestroyLater());
-			}
-			else 
-				PlayerController.LastRabit.GetComponent<Animator>().SetBool("death", true);
+			Animator.SetBool("death", true);
+			StartCoroutine(DestroyLater());
 		}
+		else 
+			PlayerController.LastRabit.GetComponent<Animator>().SetBool("death", true);
 	}
 
 }

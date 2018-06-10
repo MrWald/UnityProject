@@ -4,6 +4,11 @@ public class Mushroom : Collectable
 {
 	internal static bool Consumed;
 	
+	void Start()
+	{
+		Audio = GetComponent<AudioSource>();
+	}
+	
 	protected override void OnRabitHit (PlayerController rabit) 
 	{
 		if (!Consumed)
