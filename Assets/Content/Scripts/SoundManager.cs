@@ -11,8 +11,6 @@ public class SoundManager
 		set
 		{
 			_isSoundOn = value;
-			PlayerPrefs.SetInt("sound", _isSoundOn ? 1 : 0);
-			PlayerPrefs.Save();
 		}
 		get { return _isSoundOn; }
 	}

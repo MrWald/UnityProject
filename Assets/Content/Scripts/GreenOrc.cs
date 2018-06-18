@@ -31,8 +31,10 @@ public class GreenOrc : Orc
 		return -1;
 	}
 	
-	void OnTriggerEnter2D(Collider2D collider) 
+	void OnTriggerEnter2D(Collider2D collider)
 	{
+		if (Animator.GetBool("death"))
+			return;
 		PlayerController rabit = collider.GetComponent<PlayerController>();
 		if (rabit == null) return;
 		OnAttack();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -43,10 +44,6 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-	}
-
-	void FixedUpdate ()
-	{
 		if (_wait) return;
 		
 		if (_animator.GetBool("death"))
@@ -57,6 +54,20 @@ public class PlayerController : MonoBehaviour
 			_wait = true;
 			StartCoroutine(PostDeath());
 		}
+	}
+
+	void FixedUpdate ()
+	{
+		if (_wait) return;
+		
+		/*if (_animator.GetBool("death"))
+		{
+			AudioSource.clip = DeathAudio;
+			if(SoundManager.Instance.IsSoundOn)
+				AudioSource.Play();
+			_wait = true;
+			StartCoroutine(PostDeath());
+		}*/
 
 		CheckForBombHit();
 
@@ -79,7 +90,8 @@ public class PlayerController : MonoBehaviour
 			{
 				AudioSource.clip = WalkingAudio;
 				AudioSource.loop = true;
-				AudioSource.Play();
+				if(SoundManager.Instance.IsSoundOn)
+					AudioSource.Play();
 			}
 			_animator.SetBool("run", true);
 			Vector2 vel = _myBody.velocity;
@@ -163,7 +175,7 @@ public class PlayerController : MonoBehaviour
 
 	private IEnumerator PostDeath()
 	{
-		yield return new WaitForSeconds (_animator.GetCurrentAnimatorStateInfo(0).length * 2); 
+		yield return new WaitForSeconds (AudioSource.clip.length); 
 		_animator.SetBool("death", false);
 		LevelController.Current.OnRabitDeath(this);
 		_wait = false;

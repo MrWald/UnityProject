@@ -7,14 +7,12 @@ public class OrangeOrc : Orc {
 	public GameObject PrefabCarrot;
 	
 	private float _lastCarrot;
-	private BoxCollider2D _collider;
 	
 	// Use this for initialization
 	new void Start () {
 		base.Start();
 		Animator = GetComponent<Animator>();
 		_lastCarrot = Time.time;
-		_collider = GetComponent<BoxCollider2D>();
 		AttackSource = GetComponent<AudioSource> (); 
 	}
 	
@@ -54,6 +52,8 @@ public class OrangeOrc : Orc {
 	
 	void OnTriggerEnter2D(Collider2D collider) 
 	{
+		if (Animator.GetBool("death"))
+			return;
 		PlayerController rabit = collider.GetComponent<PlayerController>();
 		if (rabit == null) return;
 		OnAttack();

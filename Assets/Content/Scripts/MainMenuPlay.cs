@@ -1,23 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuPlay : MonoBehaviour {
+public class MainMenuPlay : ButtonController {
 
-	// Use this for initialization
-	void Start () {
-		GetComponent<Button>().onClick.AddListener(StartGame);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	private static void StartGame()
+	protected override void PostClick()
 	{
+		StartCoroutine(StartGame());
+	}
+
+	private IEnumerator StartGame()
+	{
+		yield return new WaitForSeconds (ButtonClick.length); 
 		SceneManager.LoadScene("Level Chooser");
 	}
 }

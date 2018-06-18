@@ -12,7 +12,8 @@ public class Fruit : Collectable
 		Audio = GetComponent<AudioSource>();
 		if (!LevelController.Current.Stats.CollectedFruits.Contains(_id)) return;
 		++LevelController.Current.FruitsTaken;
-		CollectedHide();
+		SpriteRenderer sr = GetComponent<SpriteRenderer>();
+		sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a/2);
 	}
 	
 	protected override void OnRabitHit(PlayerController rabit)

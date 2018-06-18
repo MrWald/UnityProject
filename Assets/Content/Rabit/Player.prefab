@@ -204,6 +204,7 @@ MonoBehaviour:
   WalkingAudio: {fileID: 8300000, guid: 0d024189a711c440997b2d9f341c8dd0, type: 3}
   JumpingAudio: {fileID: 0}
   DeathAudio: {fileID: 0}
+  AudioSource: {fileID: 0}
 --- !u!212 &212929100522036582
 SpriteRenderer:
   m_ObjectHideFlags: 1

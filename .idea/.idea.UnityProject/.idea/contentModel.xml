@@ -7,6 +7,7 @@
       <e p="Assets/Content" t="Include">
         <e p="Scripts" t="Include">
           <e p="Bomb.cs" t="Include" />
+          <e p="ButtonController.cs" t="Include" />
           <e p="Carrot.cs" t="Include" />
           <e p="Coins.cs" t="Include" />
           <e p="Collectable.cs" t="Include" />
@@ -23,11 +24,14 @@
           <e p="MovingObj.cs" t="Include" />
           <e p="MovingPlatform.cs" t="Include" />
           <e p="Mushroom.cs" t="Include" />
+          <e p="MusicButtonsController.cs" t="Include" />
+          <e p="MusicManager.cs" t="Include" />
           <e p="OrangeOrc.cs" t="Include" />
           <e p="Orc.cs" t="Include" />
           <e p="ParallaxLayer.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />
+          <e p="SoundButtonController.cs" t="Include" />
           <e p="SoundManager.cs" t="Include" />
         </e>
       </e>

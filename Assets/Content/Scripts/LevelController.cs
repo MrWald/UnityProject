@@ -70,7 +70,6 @@ public class LevelController : MonoBehaviour
 	private void OnDestroy()
 	{
 		PlayerPrefs.SetInt ("coins", _points);
-		PlayerPrefs.Save ();
 		string str = JsonUtility.ToJson(Stats); 
 		PlayerPrefs.SetString ("stats"+Level, str);
 		PlayerPrefs.Save ();
