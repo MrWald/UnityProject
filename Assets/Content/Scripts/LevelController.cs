@@ -80,7 +80,10 @@ public class LevelController : MonoBehaviour
 		if(RestartButton!=null)
 			RestartButton.onClick.AddListener(RestartAction);
 		foreach (Button closeButton in CloseButtons)
-			closeButton.onClick.AddListener(MenuAction);
+		{
+			if(closeButton!=null)
+				closeButton.onClick.AddListener(MenuAction);
+		}
 	}
 
 	private void OnDestroy()
@@ -120,7 +123,8 @@ public class LevelController : MonoBehaviour
 	public void AddCoins(int number)
 	{
 		_points += number;
-		Points.text = _points.ToString().PadLeft(4, '0');
+		if(Points!=null)
+			Points.text = _points.ToString().PadLeft(4, '0');
 	}
 	
 	public static void SetNewParent(Transform obj, Transform newParent) 

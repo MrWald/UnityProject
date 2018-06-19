@@ -78,6 +78,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6a6de32e7f840e5a96ffbb29daefc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WinPane: {fileID: 0}
+  Crystals:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Fruits: {fileID: 0}
+  RestartButton: {fileID: 0}
+  NextLevelButton: {fileID: 0}
+  WinClip: {fileID: 8300000, guid: dee792aa118e04f4f93fb651e2693ac9, type: 3}
+  CloseButtons:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &212949226080576224
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -187,21 +187,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: Crystals.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: CrystalsLost.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: CloseButtons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -259,11 +244,6 @@ Prefab:
       propertyPath: Fruits
       value: 
       objectReference: {fileID: 1644102912}
-    - target: {fileID: 82113880705411116, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: Mute
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
         type: 2}
       propertyPath: Crystals.Array.data[0]
@@ -281,26 +261,6 @@ Prefab:
       objectReference: {fileID: 1597043515}
     - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
         type: 2}
-      propertyPath: LosePane
-      value: 
-      objectReference: {fileID: 1404547482}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: LoseClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 98a18c22aef5542858a6eaf886ac253a, type: 3}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: MenuButton
-      value: 
-      objectReference: {fileID: 1404547484}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
-      propertyPath: RestartButton
-      value: 
-      objectReference: {fileID: 1404547483}
-    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
-        type: 2}
       propertyPath: CrystalsLost.Array.data[0]
       value: 
       objectReference: {fileID: 1411642397}
@@ -316,9 +276,19 @@ Prefab:
       objectReference: {fileID: 897646528}
     - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
         type: 2}
-      propertyPath: CloseButton
+      propertyPath: LosePane
       value: 
-      objectReference: {fileID: 1404547485}
+      objectReference: {fileID: 1404547482}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: RestartButton
+      value: 
+      objectReference: {fileID: 1404547483}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: MenuButton
+      value: 
+      objectReference: {fileID: 1404547484}
     - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
         type: 2}
       propertyPath: CloseButtons.Array.data[0]
@@ -1878,6 +1848,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dc793185b6a5e43c1ac6f4681a854956, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &890869900 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114370677259287876, guid: 099688b02526643a1b50cf90571a4fa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1495266416}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &897646528 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114523403678616822, guid: d9100503e0bb44bea98be9634ed032d4,
@@ -2229,11 +2205,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
-        type: 2}
-      propertyPath: Crystals.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4148538756908590, guid: 91b0ca47465a24a9091d424beb1746f5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 18
@@ -2273,11 +2244,6 @@ Prefab:
       objectReference: {fileID: 1495266417}
     - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
         type: 2}
-      propertyPath: Fruts
-      value: 
-      objectReference: {fileID: 1644102912}
-    - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
-        type: 2}
       propertyPath: Crystals.Array.data[0]
       value: 
       objectReference: {fileID: 1495266421}
@@ -2298,19 +2264,24 @@ Prefab:
       objectReference: {fileID: 1495266418}
     - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
         type: 2}
-      propertyPath: NextLevelButton
-      value: 
-      objectReference: {fileID: 1495266422}
-    - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
-        type: 2}
       propertyPath: RestartButton
       value: 
       objectReference: {fileID: 1495266423}
     - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
         type: 2}
-      propertyPath: WinClip
+      propertyPath: NextLevelButton
       value: 
-      objectReference: {fileID: 8300000, guid: dee792aa118e04f4f93fb651e2693ac9, type: 3}
+      objectReference: {fileID: 1495266422}
+    - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
+        type: 2}
+      propertyPath: CloseButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 890869900}
+    - target: {fileID: 114601898250855750, guid: 91b0ca47465a24a9091d424beb1746f5,
+        type: 2}
+      propertyPath: CloseButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1495266424}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91b0ca47465a24a9091d424beb1746f5, type: 2}
   m_IsPrefabParent: 0
@@ -2858,10 +2829,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1935214549404902, guid: 099688b02526643a1b50cf90571a4fa8, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 099688b02526643a1b50cf90571a4fa8, type: 2}
   m_IsPrefabParent: 0
@@ -2903,6 +2870,12 @@ MonoBehaviour:
 --- !u!114 &1495266423 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114185780527120112, guid: 099688b02526643a1b50cf90571a4fa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1495266416}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1495266424 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114913392668302848, guid: 099688b02526643a1b50cf90571a4fa8,
     type: 2}
   m_PrefabInternal: {fileID: 1495266416}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
