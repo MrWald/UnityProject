@@ -17,6 +17,7 @@ public class LevelController : MonoBehaviour
 	public AudioClip LoseClip;
 	public Button RestartButton;
 	public Button MenuButton;
+	public Button[] CloseButtons;
 
 	public int FruitsTaken
 	{
@@ -78,6 +79,8 @@ public class LevelController : MonoBehaviour
 			MenuButton.onClick.AddListener(MenuAction);
 		if(RestartButton!=null)
 			RestartButton.onClick.AddListener(RestartAction);
+		foreach (Button closeButton in CloseButtons)
+			closeButton.onClick.AddListener(MenuAction);
 	}
 
 	private void OnDestroy()

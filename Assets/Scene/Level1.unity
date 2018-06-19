@@ -197,6 +197,11 @@ Prefab:
       propertyPath: CrystalsLost.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: CloseButtons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4996272237543940, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -309,6 +314,21 @@ Prefab:
       propertyPath: CrystalsLost.Array.data[2]
       value: 
       objectReference: {fileID: 897646528}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: CloseButton
+      value: 
+      objectReference: {fileID: 1404547485}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: CloseButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1404547485}
+    - target: {fileID: 114271391687082818, guid: d1ba89a49780b4fdda1996e80ff56f15,
+        type: 2}
+      propertyPath: CloseButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1404547486}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1ba89a49780b4fdda1996e80ff56f15, type: 2}
   m_IsPrefabParent: 0
@@ -2622,6 +2642,18 @@ MonoBehaviour:
 --- !u!114 &1404547484 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114658087263494338, guid: d9100503e0bb44bea98be9634ed032d4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1404547480}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1404547485 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114858723352528152, guid: d9100503e0bb44bea98be9634ed032d4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1404547480}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1404547486 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114519054313980468, guid: d9100503e0bb44bea98be9634ed032d4,
     type: 2}
   m_PrefabInternal: {fileID: 1404547480}
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}

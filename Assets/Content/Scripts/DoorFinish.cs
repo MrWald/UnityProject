@@ -12,11 +12,14 @@ public class DoorFinish : MonoBehaviour
 	public Button RestartButton;
 	public Button NextLevelButton;
 	public AudioClip WinClip;
+	public Button[] CloseButtons;
 
 	void Start()
 	{
 		RestartButton.onClick.AddListener(RestartAction);
 		NextLevelButton.onClick.AddListener(NextAction);
+		foreach (Button closeButton in CloseButtons)
+			closeButton.onClick.AddListener(NextAction);
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) 

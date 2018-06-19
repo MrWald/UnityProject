@@ -1626,6 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 1
 --- !u!1 &2006550547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 0
 --- !u!1001 &2015183803
 Prefab:
   m_ObjectHideFlags: 0
