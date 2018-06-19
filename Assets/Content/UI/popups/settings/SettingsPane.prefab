@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 0
   Value: 0
 --- !u!114 &114342047155431886
 MonoBehaviour:
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 0
   Value: 1
 --- !u!114 &114348105262684568
 MonoBehaviour:
@@ -431,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 0
   Value: 1
 --- !u!114 &114374792446333154
 MonoBehaviour:
@@ -707,6 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 1
 --- !u!114 &114597436740038512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonClick: {fileID: 8300000, guid: 0a7169e0dced249e7b04ff774fc0bd87, type: 3}
+  Closing: 0
   Value: 0
 --- !u!114 &114953567065332986
 MonoBehaviour:

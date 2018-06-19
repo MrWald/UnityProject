@@ -26,6 +26,7 @@ public class DoorFinish : MonoBehaviour
 		LevelController.Current.Stats.LevelPassed = true;
 		if(SoundManager.Instance.IsSoundOn)
 			AudioSource.PlayClipAtPoint(WinClip, Camera.main.transform.position);
+		Time.timeScale = 0;
 		WinPane.SetActive(true);
 		Fruits.text = LevelController.Current.Fruits.text;
 		for (int i=0;i<Crystals.Length;++i)
@@ -35,10 +36,12 @@ public class DoorFinish : MonoBehaviour
 	private void RestartAction()
 	{
 		SceneManager.LoadScene("Level"+LevelController.Current.Level);
+		Time.timeScale = 1;
 	}
 	
 	private void NextAction()
 	{
 		SceneManager.LoadScene("Level Chooser");
+		Time.timeScale = 1;
 	}
 }

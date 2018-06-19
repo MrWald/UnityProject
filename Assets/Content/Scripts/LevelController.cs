@@ -37,7 +37,8 @@ public class LevelController : MonoBehaviour
 		set
 		{
 			_fruitsAll = value;
-			Fruits.text = FruitsTaken + "/" + _fruitsAll;
+			if(Fruits!=null)
+				Fruits.text = FruitsTaken + "/" + _fruitsAll;
 			if(_fruitsTaken != FruitsAll)
 				Stats.HasAllFruits = false;
 		}
@@ -73,8 +74,10 @@ public class LevelController : MonoBehaviour
 	void Start()
 	{
 		AddCoins(PlayerPrefs.GetInt ("coins", 0));
-		MenuButton.onClick.AddListener(MenuAction);
-		RestartButton.onClick.AddListener(RestartAction);
+		if(MenuButton!=null)
+			MenuButton.onClick.AddListener(MenuAction);
+		if(RestartButton!=null)
+			RestartButton.onClick.AddListener(RestartAction);
 	}
 
 	private void OnDestroy()
@@ -99,6 +102,7 @@ public class LevelController : MonoBehaviour
 		{
 			if(SoundManager.Instance.IsSoundOn)
 				AudioSource.PlayClipAtPoint(LoseClip, Camera.main.transform.position);
+			Time.timeScale = 0;
 			for (int i = 0; i < Crystals.Length; ++i)
 				CrystalsLost[i].sprite = Crystals[i].sprite;
 			LosePane.SetActive(true);
@@ -126,11 +130,13 @@ public class LevelController : MonoBehaviour
 
 	private void RestartAction()
 	{
-		SceneManager.LoadScene("Level"+LevelController.Current.Level);
+		SceneManager.LoadScene("Level" + Level);
+		Time.timeScale = 1;
 	}
 	
 	private void MenuAction()
 	{
 		SceneManager.LoadScene("Level Chooser");
+		Time.timeScale = 1;
 	}
 }

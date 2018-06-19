@@ -6,11 +6,16 @@ public class ButtonController : MonoBehaviour
 {
 
 	public AudioClip ButtonClick;
+	public bool Closing;
 	
 	public void PlayButtonClick()
 	{
-		if(SoundManager.Instance.IsSoundOn)
+		if (Closing)
+			Time.timeScale = 1;
+		if (SoundManager.Instance.IsSoundOn)
 			AudioSource.PlayClipAtPoint(ButtonClick, Camera.main.transform.position);
+		if (!Closing)
+			Time.timeScale = 0;
 		PostClick();
 	}
 
