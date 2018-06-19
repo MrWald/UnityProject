@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2a4f2a5136c4412af94d1227658028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 2
   MaxJumpTime: 2
   JumpSpeed: 2
   WalkingAudio: {fileID: 8300000, guid: 0d024189a711c440997b2d9f341c8dd0, type: 3}

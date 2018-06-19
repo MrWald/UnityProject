@@ -11,6 +11,7 @@
           <e p="Carrot.cs" t="Include" />
           <e p="Coins.cs" t="Include" />
           <e p="Collectable.cs" t="Include" />
+          <e p="ContinueButtonController.cs" t="Include" />
           <e p="Crystal.cs" t="Include" />
           <e p="DeathHere.cs" t="Include" />
           <e p="DoorController.cs" t="Include" />
@@ -21,6 +22,7 @@
           <e p="LevelController.cs" t="Include" />
           <e p="LevelStat.cs" t="Include" />
           <e p="MainMenuPlay.cs" t="Include" />
+          <e p="MenuButtonController.cs" t="Include" />
           <e p="MovingObj.cs" t="Include" />
           <e p="MovingPlatform.cs" t="Include" />
           <e p="Mushroom.cs" t="Include" />
@@ -31,6 +33,7 @@
           <e p="ParallaxLayer.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerFollow.cs" t="Include" />
+          <e p="RestartButtonController.cs" t="Include" />
           <e p="SoundButtonController.cs" t="Include" />
           <e p="SoundManager.cs" t="Include" />
         </e>

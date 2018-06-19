@@ -11,11 +11,19 @@ public class LevelController : MonoBehaviour
 	public Sprite EmptyLife;
 	public Text Fruits;
 	public int Level;
+	public Image[] Crystals;
+	public Image[] CrystalsLost;
+	public GameObject LosePane;
+	public AudioClip LoseClip;
+	public Button RestartButton;
+	public Button MenuButton;
 
 	public int FruitsTaken
 	{
 		set
 		{
+			if (value > _fruitsAll)
+				return;
 			_fruitsTaken = value;
 			Fruits.text = FruitsTaken + "/" + _fruitsAll;
 			if(_fruitsTaken == FruitsAll)
@@ -65,6 +73,8 @@ public class LevelController : MonoBehaviour
 	void Start()
 	{
 		AddCoins(PlayerPrefs.GetInt ("coins", 0));
+		MenuButton.onClick.AddListener(MenuAction);
+		RestartButton.onClick.AddListener(RestartAction);
 	}
 
 	private void OnDestroy()
@@ -85,8 +95,15 @@ public class LevelController : MonoBehaviour
 		rabit.AudioSource.clip = rabit.DeathAudio;
 		if(SoundManager.Instance.IsSoundOn)
 			rabit.AudioSource.Play();
-		if(_health==1)
-			SceneManager.LoadScene("Level Chooser");
+		if (_health == 1)
+		{
+			if(SoundManager.Instance.IsSoundOn)
+				AudioSource.PlayClipAtPoint(LoseClip, Camera.main.transform.position);
+			for (int i = 0; i < Crystals.Length; ++i)
+				CrystalsLost[i].sprite = Crystals[i].sprite;
+			LosePane.SetActive(true);
+		}
+
 		rabit.transform.position = _startingPosition;
 		if (Lifes.Length == 0)
 			return;
@@ -105,5 +122,15 @@ public class LevelController : MonoBehaviour
 		Vector3 pos = obj.transform.position;
 		obj.transform.parent = newParent;
 		obj.transform.position = pos;
+	}
+
+	private void RestartAction()
+	{
+		SceneManager.LoadScene("Level"+LevelController.Current.Level);
+	}
+	
+	private void MenuAction()
+	{
+		SceneManager.LoadScene("Level Chooser");
 	}
 }
