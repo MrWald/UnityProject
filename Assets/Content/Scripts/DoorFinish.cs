@@ -32,6 +32,7 @@ public class DoorFinish : MonoBehaviour
 		Time.timeScale = 0;
 		WinPane.SetActive(true);
 		Fruits.text = LevelController.Current.Fruits.text;
+		LevelController.Current.AddCoins(10);
 		for (int i=0;i<Crystals.Length;++i)
 			Crystals[i].sprite = LevelController.Current.Crystals[i].sprite;
 	}
