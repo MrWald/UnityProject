@@ -18,6 +18,7 @@ public class LevelController : MonoBehaviour
 	public Button RestartButton;
 	public Button MenuButton;
 	public Button[] CloseButtons;
+	public int Health = 3;
 
 	public int FruitsTaken
 	{
@@ -63,7 +64,6 @@ public class LevelController : MonoBehaviour
 	private int _crystals;
 	private int _fruitsTaken;
 	private int _fruitsAll;
-	private int _health = 3;
 	
 	void Awake() 
 	{ 
@@ -104,7 +104,7 @@ public class LevelController : MonoBehaviour
 		rabit.AudioSource.clip = rabit.DeathAudio;
 		if(SoundManager.Instance.IsSoundOn)
 			rabit.AudioSource.Play();
-		if (_health == 1)
+		if (Health == 1)
 		{
 			if(SoundManager.Instance.IsSoundOn)
 				AudioSource.PlayClipAtPoint(LoseClip, Camera.main.transform.position);
@@ -117,7 +117,7 @@ public class LevelController : MonoBehaviour
 		rabit.transform.position = _startingPosition;
 		if (Lifes.Length == 0)
 			return;
-		Lifes[--_health].GetComponent<Image>().sprite = EmptyLife;
+		Lifes[--Health].GetComponent<Image>().sprite = EmptyLife;
 	}
 	
 	public void AddCoins(int number)

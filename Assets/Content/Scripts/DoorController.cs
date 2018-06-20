@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class DoorController : MonoBehaviour
 {
@@ -51,11 +50,6 @@ public class DoorController : MonoBehaviour
 			if (!stats.LevelPassed)
 				Lock.GetComponent<SpriteRenderer>().sprite = null;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 	
 	void OnTriggerEnter2D(Collider2D collider) 

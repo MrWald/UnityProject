@@ -2,22 +2,13 @@
 
 public class SoundManager
 {
-	public static SoundManager Instance = new SoundManager();
-	
-	private bool _isSoundOn;
+	public static readonly SoundManager Instance = new SoundManager();
 
-	public bool IsSoundOn
-	{
-		set
-		{
-			_isSoundOn = value;
-		}
-		get { return _isSoundOn; }
-	}
+	public bool IsSoundOn { set; get; }
 
 	private SoundManager()
 	{
-		_isSoundOn = PlayerPrefs.GetInt("sound", 1) == 1;
+		IsSoundOn = PlayerPrefs.GetInt("sound", 1) == 1;
 	}
 
 }

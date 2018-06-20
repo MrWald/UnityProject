@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Fruit : Collectable
 {
@@ -19,7 +18,8 @@ public class Fruit : Collectable
 	protected override void OnRabitHit(PlayerController rabit)
 	{
 		++LevelController.Current.FruitsTaken;
-		LevelController.Current.Stats.CollectedFruits.Add(_id);
+		if(!LevelController.Current.Stats.CollectedFruits.Contains(_id))
+			LevelController.Current.Stats.CollectedFruits.Add(_id);
 		CollectedHide ();
 	}
 }

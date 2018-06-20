@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Carrot : Collectable {
@@ -7,11 +6,6 @@ public class Carrot : Collectable {
 	// Use this for initialization
 	void Start() {
 		StartCoroutine (DestroyLater());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	public void Launch(float direction)

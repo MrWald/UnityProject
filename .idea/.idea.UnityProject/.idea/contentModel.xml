@@ -20,6 +20,7 @@
           <e p="LevelChooser.cs" t="Include" />
           <e p="LevelController.cs" t="Include" />
           <e p="LevelStat.cs" t="Include" />
+          <e p="Life.cs" t="Include" />
           <e p="MainMenuPlay.cs" t="Include" />
           <e p="MovingObj.cs" t="Include" />
           <e p="MovingPlatform.cs" t="Include" />

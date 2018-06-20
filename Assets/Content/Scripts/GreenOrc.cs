@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GreenOrc : Orc 
 {
@@ -13,10 +12,6 @@ public class GreenOrc : Orc
 		_collider = GetComponent<BoxCollider2D>();
 		
 		AttackSource = GetComponent<AudioSource> (); 
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
 	protected override float AttackBehaviour()

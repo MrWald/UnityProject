@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public abstract class Orc : MovingObj {
@@ -26,10 +24,6 @@ public abstract class Orc : MovingObj {
 		_mode = Mode.GoToA;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	}
-
 	void FixedUpdate()
 	{
 		if (Animator.GetBool("death"))

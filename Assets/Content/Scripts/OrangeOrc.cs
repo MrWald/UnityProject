@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OrangeOrc : Orc {
 
@@ -14,11 +12,6 @@ public class OrangeOrc : Orc {
 		Animator = GetComponent<Animator>();
 		_lastCarrot = Time.time;
 		AttackSource = GetComponent<AudioSource> (); 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	protected override float AttackBehaviour()

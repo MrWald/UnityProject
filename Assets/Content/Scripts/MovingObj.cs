@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovingObj : MonoBehaviour {
 
@@ -16,12 +14,7 @@ public class MovingObj : MonoBehaviour {
 		PointB = PointA + MoveBy;
 		MyBody = GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
+
 	protected static bool IsArrived(Vector3 pos, Vector3 target) 
 	{
 		pos.z = 0;

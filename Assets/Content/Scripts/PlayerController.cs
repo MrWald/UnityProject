@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -45,29 +42,18 @@ public class PlayerController : MonoBehaviour
 	void Update () 
 	{
 		if (_wait) return;
-		
-		if (_animator.GetBool("death"))
-		{
-			AudioSource.clip = DeathAudio;
-			if(SoundManager.Instance.IsSoundOn)
-				AudioSource.Play();
-			_wait = true;
-			StartCoroutine(PostDeath());
-		}
+
+		if (!_animator.GetBool("death")) return;
+		AudioSource.clip = DeathAudio;
+		if(SoundManager.Instance.IsSoundOn)
+			AudioSource.Play();
+		_wait = true;
+		StartCoroutine(PostDeath());
 	}
 
 	void FixedUpdate ()
 	{
 		if (_wait) return;
-		
-		/*if (_animator.GetBool("death"))
-		{
-			AudioSource.clip = DeathAudio;
-			if(SoundManager.Instance.IsSoundOn)
-				AudioSource.Play();
-			_wait = true;
-			StartCoroutine(PostDeath());
-		}*/
 
 		CheckForBombHit();
 
